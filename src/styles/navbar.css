@@ -1,0 +1,67 @@
+.brand-logo img{
+    height: 120px;
+    width: 140px;
+}
+.search-bar{
+    display: flex;
+    padding: 0 10px;
+    margin-right: 3rem;
+}
+.search-bar input{
+    border: 1.2px solid #bc0c0c;
+    border-radius: 10px;    
+    color: white;
+    background: none;
+    width: 100%;
+    padding: 10px 15px;
+
+}
+.search-bar input:focus{
+    outline: none;
+    
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+}
+.toggle-button{
+    position: absolute;
+    top: 2rem;
+    right: 1rem;
+    display: none;
+    cursor: pointer;
+
+}
+.toggle-button .fa-bars{
+    font-size: 2.5rem;
+    color: #bc0c0c;
+}
+
+/* media queries */
+@media (max-width: 768px){
+.toggle-button{
+    display: block;
+}
+.search-bar{
+    display: none;
+}
+.navbar{
+     flex-direction: column;
+     justify-content: center;
+
+     align-items: flex-start;
+}
+.search-bar {
+    padding: .8rem 0;
+}
+
+}
+
+/* toggle class */
+.active{
+    display: block;
+    padding: 15px 10px;
+}
+
