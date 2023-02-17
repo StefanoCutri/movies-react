@@ -16,12 +16,12 @@ export const usePopular = () => {
       .then((res) => {
         if (res.data !== undefined) {
           setPopular(res.data.results);
+          setIsLoading(false);
         }
       })
       .catch((err) => {
         throw new Error(err);
       });
-    setIsLoading(false);
   };
 
   useEffect(() => {

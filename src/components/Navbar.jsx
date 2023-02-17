@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import logoImg from "../assets/StefanoMovies-1.png";
 import { SearchInput } from "./SearchInput";
 
