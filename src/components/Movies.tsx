@@ -35,13 +35,13 @@ const randomMovie = popular[randNumber];
   return (
     <>
   {/* Hacer un componente con React.MEMO */}
-  {
-    popular.length > 0 
-    ?
-<HeaderImage movie={randomMovie} />
-: null
-  }
-      
+    {
+      popular.length > 0 
+      ?
+      <HeaderImage movie={randomMovie} />
+      : null
+    }
+        
     
       <div className="movies-container">
         {filteredState.moviesState.filteredMovies.map((p) => {

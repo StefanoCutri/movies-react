@@ -1,72 +1,6 @@
 body{
     background-color: rgb(34, 34, 34);
 }
-a{
-    /* width: 500px !important; */
-}
-.header{
-    width: 100%;
-    height: 90vh;
-    background: no-repeat center center / cover;
-    z-index: -1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.header-content{
-    width: 100%;
-    color: #fff;
-    
-}
-
-.header-content-layout{
-    padding: 4rem;
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: flex-start;
-    width: 20%;
-}
-
-.header-content-layout h1{
-    font-size: 4rem;
-}
-
-.header-content-layout button{
-    margin: 1rem 0;
-    background: #d1d0d0;
-    padding: 5px 60px;
-    border-radius: 10px;
-    border: 1px solid black;
-    font-weight: bolder;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.header-content-layout button p{
-    padding-left: 1rem;
-}
-
-.header-content-layout p{
-    font-size: 1.5rem;
-    
-}
-
-.home-view{
-    height: 80vh;
-    width: 100%;
-}
-
-.bottom-shadow{
-    height: 200px;
-    position: relative;
-    bottom: 200px;
-}
 
 .movie-type{
     margin: 0 0 0 3rem;
@@ -126,7 +60,11 @@ a{
       justify-content: center;
     }
     .movie-content{
-        margin: 0 6rem 0 2rem
+        /* margin: 0 6rem 0 2rem */
+    }
+
+    a{
+        width: 320px !important;
     }
 }
 

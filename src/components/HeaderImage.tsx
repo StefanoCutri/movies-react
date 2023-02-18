@@ -1,7 +1,6 @@
-
-
-import React from 'react'
-import { Result } from '../interfaces/interfaces'
+import React from 'react';
+import { Result } from '../interfaces/interfaces';
+import "../styles/header.css"
 
 export const HeaderImage = ({movie}: any) => {
 
@@ -29,7 +28,7 @@ export const HeaderImage = ({movie}: any) => {
         <i className="fa-solid fa-circle-info"></i>
          <p>More info</p>
         </button>
-        <p>{truncate(randomMovie.overview)}</p>
+        <p id='overview'>{truncate(randomMovie.overview)}</p>
         </div>
       </div>
       </div>
