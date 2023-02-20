@@ -1,3 +1,4 @@
+import React from "react";
 import { MoviesContext } from "../context/MoviesContext";
 import { MoviesState, Result } from "../interfaces/interfaces";
 import { useReducer } from "react";

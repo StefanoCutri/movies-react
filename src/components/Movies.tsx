@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
 import { MovieCard } from "./MovieCard";
@@ -7,6 +8,7 @@ import { useTopRated } from "../hooks/useTopRated";
 import { useUpComing } from "../hooks/useUpComing";
 
 import "../styles/movie-card.css";
+import { HeaderImage } from "./HeaderImage";
 
 export const Movies = () => {
   const { popular, isLoadingPopular } = usePopular();
@@ -16,10 +18,31 @@ export const Movies = () => {
 
   const filteredState = useContext(MoviesContext);
 
-  console.log(isLoadingPopular);
+const getRandomNum = (maxLim: number) => {
+  let rand = Math.random () * maxLim;
+
+  rand = Math.floor(rand);
+
+  return rand;
+}
+
+
+
+const randNumber = getRandomNum(popular.length);
+
+const randomMovie = popular[randNumber];
 
   return (
     <>
+  {/* Hacer un componente con React.MEMO */}
+    {
+      popular.length > 0 
+      ?
+      <HeaderImage movie={randomMovie} />
+      : null
+    }
+        
+    
       <div className="movies-container">
         {filteredState.moviesState.filteredMovies.map((p) => {
           return (
@@ -33,7 +56,7 @@ export const Movies = () => {
           );
         })}
       </div>
-      {isLoadingPopular && <p>LOADING</p>}
+      
       <p className="movie-type">Popular</p>
       <div className="movies-container">
         {popular.map((p) => {

@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { Result } from "../interfaces/interfaces";
 import "../styles/movie-card.css";
@@ -13,13 +14,14 @@ export const MovieCard = ({ movieInfo }: MovieCardProps) => {
   const { movie, isLoading } = movieInfo;
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
   }
 
   return (
     <>
       {movie.poster_path && (
-        <Link to={`/movie/${movie.id}`} state={movie}>
+        <Link to={`/movie/${movie.id}`} state={movie} style={{
+          'width': '32px !important'
+        }}>
           <div
             className="movie-content"
             style={{
