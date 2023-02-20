@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Result } from '../interfaces/interfaces';
 import "../styles/header.css"
 
-export const HeaderImage = ({movie}: any) => {
+export const HeaderImage = React.memo(({movie}: any) => {
 
+  console.log("HEADER RENDER!")
   const randomMovie = movie as Result;
+  const movieRef = useRef(randomMovie);
   const truncate = (input: string) => input.length > 120 ? `${input.substring(0, 120)}...` : input;
   return(
   <>
@@ -17,18 +19,18 @@ export const HeaderImage = ({movie}: any) => {
                     hsl(0 0% 0% / 0),
                     hsl(20 0% 0% / 0.3) 50%,
                     hsl(0 0% 0% / 1)
-                ),url(https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path})`,
+                ),url(https://image.tmdb.org/t/p/original/${movieRef.current .backdrop_path})`,
                 height: '70vh'
         }}
       >
       <div className="header-content">
         <div className="header-content-layout">
-        <h1>{randomMovie.original_title}</h1>
+        <h1>{movieRef.current .original_title}</h1>
         <button>
         <i className="fa-solid fa-circle-info"></i>
          <p>More info</p>
         </button>
-        <p id='overview'>{truncate(randomMovie.overview)}</p>
+        <p id='overview'>{truncate(movieRef.current .overview)}</p>
         </div>
       </div>
       </div>
@@ -49,5 +51,5 @@ export const HeaderImage = ({movie}: any) => {
   </div>
   </>
   )
-}
+})
 

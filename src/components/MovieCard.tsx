@@ -26,6 +26,7 @@ export const MovieCard = ({ movieInfo }: MovieCardProps) => {
             className="movie-content"
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/w300/${movie.poster_path})`,
+      
             }}
           ></div>
         </Link>
