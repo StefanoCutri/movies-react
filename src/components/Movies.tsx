@@ -2,13 +2,14 @@ import React, { useRef } from "react";
 import { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
 import { MovieCard } from "./MovieCard";
+import { HeaderImage } from "./HeaderImage";
+
 import { usePopular } from "../hooks/usePopular";
 import { useNowPlaying } from "../hooks/useNowPlaying";
 import { useTopRated } from "../hooks/useTopRated";
 import { useUpComing } from "../hooks/useUpComing";
 
 import "../styles/movie-card.css";
-import { HeaderImage } from "./HeaderImage";
 
 export const Movies = () => {
   const { popular, isLoadingPopular } = usePopular();
@@ -26,15 +27,12 @@ const getRandomNum = (maxLim: number) => {
   return rand;
 }
 
-
-
 const randNumber = getRandomNum(popular.length);
 
 const randomMovie = popular[randNumber];
-
+console.log(filteredState.moviesState.filteredMovies.length)
   return (
     <>
-  {/* Hacer un componente con React.MEMO */}
     {
       popular.length > 0 
       ?
@@ -43,7 +41,11 @@ const randomMovie = popular[randNumber];
     }
         
     
-      <div className="movies-container">
+      <div className="movies-container"
+      style={{
+        marginTop: filteredState.moviesState.filteredMovies.length === 0 ? '0px !important ':'1.8rem ' 
+      }}
+      >
         {filteredState.moviesState.filteredMovies.map((p) => {
           return (
             <MovieCard
