@@ -57,6 +57,7 @@ export interface MoviesContextInterface{
 }
 export interface MoviesState{
     filteredMovies: Result[] | [];
+    searchInput: string;
 }
 export interface CastInterface {
     id:   number;

@@ -18,33 +18,33 @@ export const Movies = () => {
   const { upComing, isLoadingUpComing } = useUpComing();
 
   const filteredState = useContext(MoviesContext);
+  // console.log(filteredState)
+  const inputValue = filteredState.moviesState.searchInput;
 
-const getRandomNum = (maxLim: number) => {
-  let rand = Math.random () * maxLim;
+  // console.log (inputValue);
+  const getRandomNum = (maxLim: number) => {
+    let rand = Math.random() * maxLim;
+    rand = Math.floor(rand);
+    return rand;
+  };
+  const randNumber = getRandomNum(popular.length);
+  const randomMovie = popular[randNumber];
 
-  rand = Math.floor(rand);
-
-  return rand;
-}
-
-const randNumber = getRandomNum(popular.length);
-
-const randomMovie = popular[randNumber];
-console.log(filteredState.moviesState.filteredMovies.length)
   return (
     <>
-    {
-      popular.length > 0 
-      ?
-      <HeaderImage movie={randomMovie} />
-      : null
-    }
-        
-    
-      <div className="movies-container"
-      style={{
-        marginTop: filteredState.moviesState.filteredMovies.length === 0 ? '0px !important ':'1.8rem ' 
-      }}
+      {popular.length > 0 ? <HeaderImage movie={randomMovie} /> : null}
+
+      {inputValue.length > 0 ? (
+        <>
+        <p className="movie-type" style={{marginTop: '1rem'}}>Results for: {inputValue}</p>
+      <div
+        className="movies-container"
+        style={{
+          marginTop:
+            filteredState.moviesState.filteredMovies.length === 0
+              ? "0px !important "
+              : "1.8rem ",
+        }}
       >
         {filteredState.moviesState.filteredMovies.map((p) => {
           return (
@@ -58,7 +58,9 @@ console.log(filteredState.moviesState.filteredMovies.length)
           );
         })}
       </div>
-      
+
+        </>
+      ) : null}
       <p className="movie-type">Popular</p>
       <div className="movies-container">
         {popular.map((p) => {
