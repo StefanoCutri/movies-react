@@ -28,19 +28,18 @@ export const Movies = () => {
   };
   const randNumber = getRandomNum(popular.length);
   const randomMovie = popular[randNumber];
-
-const filteredRef = useRef();
-
-  useEffect(() => {
-    if (inputValue.length !== 0) {
-      
-    }
-  }, [inputValue.length])
   
 
   return (
     <>
-      {popular.length > 0 ? <HeaderImage movie={randomMovie} /> : null}
+      {
+        popular.length > 0 && inputValue === '' && filteredState.moviesState.filteredMovies.length === 0
+        ?
+        <HeaderImage movie={randomMovie} />
+        :
+        null
+      }
+      {/* {popular.length > 0 ? <HeaderImage movie={randomMovie} /> : null} */}
       <FilteredMovies filteredState={filteredState} inputValue={inputValue} isLoading={isLoadingPopular} />
       <p className="movie-type">Popular</p>
       <div className="movies-container">
@@ -58,7 +57,7 @@ const filteredRef = useRef();
       </div>
 
       <p className="movie-type">Top rated</p>
-      <div className="movies-container">
+      <div className="movies-container animate__animated animate__bounce">
         {topRated.map((p) => {
           return (
             <MovieCard

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Result } from "../interfaces/interfaces";
 import { useMovieCast } from "../hooks/useMovieCast";
 import { filterGenresById } from "../helpers/filterGenresById";
@@ -27,15 +27,17 @@ export const SingleMovieCard = () => {
   const last = n.pop();
   const genreResult = n.join(", ") + " and " + last;
 
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
         width: "100%",
       }}
     >
-      <Link to="/" replace>
-        <i className="fa-solid fa-arrow-left"></i>
-      </Link>
+      {/* <div > */}
+        <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left"></i>
+      {/* </div> */}
       <div
         id="single-movie-container"
         style={{
