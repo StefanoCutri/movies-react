@@ -2,6 +2,10 @@ body{
     background-color: #0D0D38;
 }
 
+#filtered-movies{
+    margin-top: 8%;
+}
+
 .movie-type{
     margin: 0 0 0 3rem;
     font-size: 2rem;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
 import { MovieCard } from "./MovieCard";
@@ -10,6 +10,7 @@ import { useTopRated } from "../hooks/useTopRated";
 import { useUpComing } from "../hooks/useUpComing";
 
 import "../styles/movie-card.css";
+import { FilteredMovies } from "./FilteredMovies";
 
 export const Movies = () => {
   const { popular, isLoadingPopular } = usePopular();
@@ -18,10 +19,8 @@ export const Movies = () => {
   const { upComing, isLoadingUpComing } = useUpComing();
 
   const filteredState = useContext(MoviesContext);
-  // console.log(filteredState)
   const inputValue = filteredState.moviesState.searchInput;
 
-  // console.log (inputValue);
   const getRandomNum = (maxLim: number) => {
     let rand = Math.random() * maxLim;
     rand = Math.floor(rand);
@@ -30,37 +29,19 @@ export const Movies = () => {
   const randNumber = getRandomNum(popular.length);
   const randomMovie = popular[randNumber];
 
+const filteredRef = useRef();
+
+  useEffect(() => {
+    if (inputValue.length !== 0) {
+      
+    }
+  }, [inputValue.length])
+  
+
   return (
     <>
       {popular.length > 0 ? <HeaderImage movie={randomMovie} /> : null}
-
-      {inputValue.length > 0 ? (
-        <>
-        <p className="movie-type" style={{marginTop: '1rem'}}>Results for: {inputValue}</p>
-      <div
-        className="movies-container"
-        style={{
-          marginTop:
-            filteredState.moviesState.filteredMovies.length === 0
-              ? "0px !important "
-              : "1.8rem ",
-        }}
-      >
-        {filteredState.moviesState.filteredMovies.map((p) => {
-          return (
-            <MovieCard
-              movieInfo={{
-                movie: p,
-                isLoading: isLoadingTopRated,
-              }}
-              key={p.id}
-            />
-          );
-        })}
-      </div>
-
-        </>
-      ) : null}
+      <FilteredMovies filteredState={filteredState} inputValue={inputValue} isLoading={isLoadingPopular} />
       <p className="movie-type">Popular</p>
       <div className="movies-container">
         {popular.map((p) => {

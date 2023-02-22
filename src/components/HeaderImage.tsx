@@ -29,7 +29,9 @@ export const HeaderImage = React.memo(({ movie }: any) => {
       >
         <div className="header-content">
           <div className="header-content-layout animate__fadeInLeft">
-            <h1>{movieRef.current.original_title}</h1>
+            <h1 style={{
+              textShadow:'2px 2px 0px rgba(0,0,0,0.42)'
+            }}>{movieRef.current.original_title}</h1>
             <Link to={`/movie/${movieRef.current.id}`} state={movieRef.current} style={{
               textDecoration: 'none'
             }}>
