@@ -1,22 +1,29 @@
-import React, { useEffect, useRef } from "react";
-import { useContext } from "react";
+import React, {useContext} from "react";
+
+
 import { MoviesContext } from "../context/MoviesContext";
+
 import { MovieCard } from "./MovieCard";
 import { HeaderImage } from "./HeaderImage";
+import { FilteredMovies } from "./FilteredMovies";
 
 import { usePopular } from "../hooks/usePopular";
 import { useNowPlaying } from "../hooks/useNowPlaying";
 import { useTopRated } from "../hooks/useTopRated";
 import { useUpComing } from "../hooks/useUpComing";
+import { useTrending } from "../hooks/useTrending";
+
+
 
 import "../styles/movie-card.css";
-import { FilteredMovies } from "./FilteredMovies";
+import { CustomSwiper } from "./CustomSwiper";
 
 export const Movies = () => {
   const { popular, isLoadingPopular } = usePopular();
   const { nowPlaying, isLoadingNowPlaying } = useNowPlaying();
   const { topRated, isLoadingTopRated } = useTopRated();
   const { upComing, isLoadingUpComing } = useUpComing();
+  const { trending, isLoadingTrending } = useTrending();
 
   const filteredState = useContext(MoviesContext);
   const inputValue = filteredState.moviesState.searchInput;
@@ -28,19 +35,40 @@ export const Movies = () => {
   };
   const randNumber = getRandomNum(popular.length);
   const randomMovie = popular[randNumber];
-  
 
   return (
     <>
-      {
-        popular.length > 0 && inputValue === '' && filteredState.moviesState.filteredMovies.length === 0
-        ?
+      {popular.length > 0 &&
+      inputValue === "" &&
+      filteredState.moviesState.filteredMovies.length === 0 ? (
         <HeaderImage movie={randomMovie} />
-        :
-        null
-      }
-      {/* {popular.length > 0 ? <HeaderImage movie={randomMovie} /> : null} */}
-      <FilteredMovies filteredState={filteredState} inputValue={inputValue} isLoading={isLoadingPopular} />
+      ) : null}
+      <FilteredMovies
+        filteredState={filteredState}
+        inputValue={inputValue}
+        isLoading={isLoadingPopular}
+      />
+
+      <CustomSwiper movie={trending} type='Trending'/>
+      <CustomSwiper movie={popular} type='Popular'/>
+      <CustomSwiper movie={nowPlaying} type='Now playing'/>
+      <CustomSwiper movie={topRated} type='Top rated'/>
+      <CustomSwiper movie={upComing} type='Up coming'/>
+      <p className="movie-type">Trending</p>
+      <div className="movies-container">
+        {trending.map((p) => {
+          return (
+            <MovieCard
+              movieInfo={{
+                movie: p,
+                isLoading: isLoadingTrending,
+              }}
+              key={p.id}
+            />
+          );
+        })}
+      </div>
+
       <p className="movie-type">Popular</p>
       <div className="movies-container">
         {popular.map((p) => {

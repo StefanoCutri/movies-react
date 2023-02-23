@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { MoviesContextProps } from "../context/MoviesContext";
 import { MovieCard } from "./MovieCard";
+
+import '../styles/filteredMovies.css'
 
 interface Props {
   inputValue: string;
@@ -36,9 +38,9 @@ export const FilteredMovies = ({
       >
         {inputValue.length > 0 &&
         filteredState.moviesState.filteredMovies.length === 0 ? (
-          <p>No results for "{inputValue}"</p>
+          <p className="filt-results">No results for "{inputValue}"</p>
         ) : (
-          <p>Results for "{inputValue}"</p>
+          <p className="filt-results">Results for "{inputValue}"</p>
         )}
       </p>
       <div

@@ -61,22 +61,18 @@
 .toggle-button{
     display: block;
 }
-.search-bar{
-    display: none;
-}
-.navbar{
+
+/* .navbar{
      flex-direction: column;
      justify-content: center;
 
      align-items: flex-start;
-}
+} */
 .search-bar {
     padding: .8rem 0;
 }
 
-.brand-logo{
-    position: fixed;
-}
+
 
 }
 

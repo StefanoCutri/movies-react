@@ -24,8 +24,15 @@ export const SingleMovieCard = () => {
 
   movieGenres.forEach((g) => n.push(g.name));
 
-  const last = n.pop();
-  const genreResult = n.join(", ") + " and " + last;
+  let last = n.pop();
+  let genreResult;
+  if (movieGenres.length > 1) {
+
+    genreResult = n.join(", ") + " and " + last;
+  
+  }else{
+    genreResult = last;
+  }
 
   const navigate = useNavigate();
 
@@ -53,7 +60,11 @@ export const SingleMovieCard = () => {
           <div className="movie-title">
             <span id="original-title"> {moviesState.original_title}</span>
             <span className="release-date">
-              ({moviesState.release_date.slice(0, 4)})
+              {
+                moviesState.release_date
+                &&
+                moviesState.release_date.slice(0, 4)
+              }
             </span>
           </div>
 

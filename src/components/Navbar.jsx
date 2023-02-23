@@ -33,9 +33,9 @@ export const Navbar = () => {
         <img src={logoImg} alt="" />
       </div>
       <SearchInput navRef={navRef} />
-      <div className="toggle-button" onClick={showNavbar}>
+      {/* <div className="toggle-button" onClick={showNavbar}>
         <i className="fa fa-bars"></i>
-      </div>
+      </div> */}
     </nav>
   );
 };

@@ -72,8 +72,8 @@ i{
     width: 90%;
 }
 .header-content-layout{
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center;/ */
 }
 #overview{
     font-size: 1.2rem;
