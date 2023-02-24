@@ -5,6 +5,7 @@
     z-index: -1;
     display: flex;
     flex-direction: column;
+    
 }
 .left-column{
     height: min-content;
@@ -57,11 +58,15 @@ span{
     color: #fff;
 }
 .fa-arrow-left{
-    color: #bc0c0c;
+    color: #191966;
     position: absolute;
     left: 2rem;
     top: 2rem;
     font-size: 1.2rem;
+}
+
+.fa-arrow-left:hover{
+    cursor: pointer;
 }
 
 /* mediaqueries */

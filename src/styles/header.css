@@ -1,32 +1,32 @@
 
 .header{
     width: 100%;
-    height: 70vh;
+    height: 85vh;
     background: no-repeat center center / cover;
 }
 
 .header-content{
     width: 50%;
     color: #fff;
-    height: 100%;
     position: relative;
-    top: 1rem;
-    left: 5%;
+    top: 30%;
+    left: 3%;
 }
 
 .header-content-layout{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     justify-content: flex-start;
+    animation-duration: 2s;
 }
 
 .header-content-layout h1{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .header-content-layout button{
-    margin: 1rem 0;
+    color: #fff;
     background: #d1d0d0;
     padding: 5px 40px;
     border-radius: 10px;
@@ -36,6 +36,12 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    background: #0D0D38;
+    transition: all .4s ease;
+}
+
+button:hover{
+    background: #191966;
 }
 
 i{
@@ -55,9 +61,9 @@ i{
 }
 
 .bottom-shadow{
-    height: 200px;
+    height: 50px;
     position: relative;
-    bottom: 200px;
+    top: -3rem;
 }
 
 /* media queries */
@@ -67,8 +73,8 @@ i{
     width: 90%;
 }
 .header-content-layout{
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center;/ */
 }
 #overview{
     font-size: 1.2rem;

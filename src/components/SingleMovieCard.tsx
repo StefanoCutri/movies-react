@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Result } from "../interfaces/interfaces";
 import { useMovieCast } from "../hooks/useMovieCast";
 import { filterGenresById } from "../helpers/filterGenresById";
@@ -7,6 +7,10 @@ import "../styles/single-movie.css";
 
 export const SingleMovieCard = () => {
   const moviesState = useLocation().state as Result;
+  const navigate = useNavigate();
+
+  const imageRef = useRef('');
+
   const { cast } = useMovieCast(moviesState.id);
 
   //   map the cast: "one, two and three"
@@ -24,8 +28,20 @@ export const SingleMovieCard = () => {
 
   movieGenres.forEach((g) => n.push(g.name));
 
-  const last = n.pop();
-  const genreResult = n.join(", ") + " and " + last;
+  let last = n.pop();
+  let genreResult;
+  if (movieGenres.length > 1) {
+
+    genreResult = n.join(", ") + " and " + last;
+  
+  }else{
+    genreResult = last;
+  }
+  
+  useEffect(() => {
+    imageRef.current = moviesState.backdrop_path;
+  }, [moviesState.backdrop_path])
+  
 
   return (
     <div
@@ -33,9 +49,7 @@ export const SingleMovieCard = () => {
         width: "100%",
       }}
     >
-      <Link to="/" replace>
-        <i className="fa-solid fa-arrow-left"></i>
-      </Link>
+      <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left"></i>
       <div
         id="single-movie-container"
         style={{
@@ -44,14 +58,18 @@ export const SingleMovieCard = () => {
                     hsl(0 0% 0% / 0),
                     hsl(20 0% 0% / 0.3) 40%,
                     hsl(0 0% 0% / 1)
-                ),url(https://image.tmdb.org/t/p/original/${moviesState.backdrop_path})`,
+                ),url(https://image.tmdb.org/t/p/original/${imageRef.current})`,
         }}
       >
         <div className="left-column">
           <div className="movie-title">
             <span id="original-title"> {moviesState.original_title}</span>
             <span className="release-date">
-              ({moviesState.release_date.slice(0, 4)})
+              {
+                moviesState.release_date
+                &&
+                moviesState.release_date.slice(0, 4)
+              }
             </span>
           </div>
 
