@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Result } from "../interfaces/interfaces";
 import { useMovieCast } from "../hooks/useMovieCast";
@@ -7,6 +7,10 @@ import "../styles/single-movie.css";
 
 export const SingleMovieCard = () => {
   const moviesState = useLocation().state as Result;
+  const navigate = useNavigate();
+
+  const imageRef = useRef('');
+
   const { cast } = useMovieCast(moviesState.id);
 
   //   map the cast: "one, two and three"
@@ -33,8 +37,11 @@ export const SingleMovieCard = () => {
   }else{
     genreResult = last;
   }
-
-  const navigate = useNavigate();
+  
+  useEffect(() => {
+    imageRef.current = moviesState.backdrop_path;
+  }, [moviesState.backdrop_path])
+  
 
   return (
     <div
@@ -42,9 +49,7 @@ export const SingleMovieCard = () => {
         width: "100%",
       }}
     >
-      {/* <div > */}
-        <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left"></i>
-      {/* </div> */}
+      <i onClick={() => navigate(-1)} className="fa-solid fa-arrow-left"></i>
       <div
         id="single-movie-container"
         style={{
@@ -53,7 +58,7 @@ export const SingleMovieCard = () => {
                     hsl(0 0% 0% / 0),
                     hsl(20 0% 0% / 0.3) 40%,
                     hsl(0 0% 0% / 1)
-                ),url(https://image.tmdb.org/t/p/original/${moviesState.backdrop_path})`,
+                ),url(https://image.tmdb.org/t/p/original/${imageRef.current})`,
         }}
       >
         <div className="left-column">

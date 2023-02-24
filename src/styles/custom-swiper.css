@@ -17,6 +17,11 @@
     margin-bottom: 4.5rem;
 }
 
+.swiper-img{
+transition: all .8s ease;
+cursor: pointer;
+}
+
 .swiper-btn{
     background: none;
     right:10px;

@@ -20,7 +20,6 @@ export const MoviesProvider = ({ children }: Props) => {
   };
 
   const updateSearchInput = (input: string) =>{
-    console.log(input)
     dispatch({type: 'updateSearchInput', payload: input});
   }
   return (
