@@ -5,7 +5,7 @@ import { Navigation } from "swiper";
 import { Result } from "../interfaces/interfaces";
 
 import "swiper/swiper.min.css";
-import "swiper/modules/navigation/navigation.min.css";
+// import "swiper/modules/navigation/navigation.min.css";
 
 import "../styles/custom-swiper.css";
 import { CustomModal } from "./CustomModal";
@@ -32,8 +32,10 @@ export const CustomSwiper = ({ movie, type }: Props) => {
 
   return (
     <div className="modal-container">
-
-    <CustomModal open={open} handleClose={handleClose} movie={movieModal}/>
+      {
+        movieModal &&
+    <CustomModal open={open} handleClose={handleClose} modalMovie={movieModal}/>
+      }
       <h1 className="movie-type">{type}</h1>
       <div className="swiper-container">
         <button className="swiper-btn" ref={prevRef}>

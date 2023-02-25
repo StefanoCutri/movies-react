@@ -12,7 +12,7 @@ import { useMovieCast } from "../hooks/useMovieCast";
 import { filterGenresById } from "../helpers/filterGenresById";
 
 interface Props {
-  movie?: Result;
+  modalMovie: Result;
   handleClose: () => void;
   open: boolean;
 }
@@ -30,14 +30,10 @@ const customStyles = {
 
 const truncate = (input: string) => input.length > 120 ? `${input.substring(0, 120)}...` : input;
 
-export const CustomModal = ({ handleClose, open, movie }: Props) => {
-  if (movie === undefined) {
-    return <></>;
-
-  }
+export const CustomModal = ({ handleClose, open, modalMovie }: Props) => {
   
   const imageRef = useRef('');
-  const { cast } = useMovieCast(movie.id);
+  const { cast } = useMovieCast(modalMovie.id);
   
   //   map the cast: "one, two and three"
   const newArray = cast.slice(0, 5);
@@ -49,11 +45,11 @@ export const CustomModal = ({ handleClose, open, movie }: Props) => {
   const castResult = castArray.join(", ") + " and " + lastC;
   
   // map the genres: 'one, two and three'
-  const movieGenres = filterGenresById(movie.genre_ids);
+  const movieGenres = filterGenresById(modalMovie.genre_ids);
   const n = [] as string[];
   
   movieGenres.forEach((g) => n.push(g.name));
-
+  
   let last = n.pop();
   let genreResult;
   if (movieGenres.length > 1) {
@@ -63,27 +59,31 @@ export const CustomModal = ({ handleClose, open, movie }: Props) => {
   }
   
   useEffect(() => {
-    imageRef.current = movie.backdrop_path;
+    imageRef.current = modalMovie.backdrop_path;
     if (open) {
       document.body.style.overflow = 'hidden';
     }else{
       document.body.style.overflow = 'unset';
     }
-  }, [movie.backdrop_path, open])
+  }, [modalMovie.backdrop_path, open])
   
+  if (modalMovie === undefined) {
+    return <></>;
+
+  }
   return (
     <ReactModal
-      isOpen={open}
-      onRequestClose={handleClose}
-      style={customStyles}
-      closeTimeoutMS={500}
-      className="modal"
+    isOpen={open}
+    onRequestClose={handleClose}
+    style={customStyles}
+    closeTimeoutMS={500}
+    className="modal"
       overlayClassName="modal-fondo"
       ariaHideApp={false}
     >
       <div className="modal-size">
           <img
-            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/original/${modalMovie.backdrop_path}`}
             style={{
               height: "100%",
               width: "100%",
@@ -96,24 +96,24 @@ export const CustomModal = ({ handleClose, open, movie }: Props) => {
           <div className="modal-title">
             <span id="modal-original-title"> 
             {
-            movie.original_title
+            modalMovie.original_title
             ?
-            movie.original_title
+            modalMovie.original_title
             :
             <span>-</span>
             }
             </span>
             <span className="modal-release-date">
               {
-                movie.release_date
+                modalMovie.release_date
                 &&
-               (movie.release_date.slice(0, 4))
+               (modalMovie.release_date.slice(0, 4))
               }
             </span>
           </div>
 
           <div className="modal-overview">
-            <p>{truncate(movie.overview)}</p>
+            <p>{truncate(modalMovie.overview)}</p>
           </div>
         </div>
 
