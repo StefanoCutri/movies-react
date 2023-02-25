@@ -1,11 +1,8 @@
-import React, {useContext} from "react";
-
-
+import React, { useContext } from "react";
 import { MoviesContext } from "../context/MoviesContext";
-
-import { MovieCard } from "./MovieCard";
 import { HeaderImage } from "./HeaderImage";
 import { FilteredMovies } from "./FilteredMovies";
+import { CustomSwiper } from "./CustomSwiper";
 
 import { usePopular } from "../hooks/usePopular";
 import { useNowPlaying } from "../hooks/useNowPlaying";
@@ -13,10 +10,7 @@ import { useTopRated } from "../hooks/useTopRated";
 import { useUpComing } from "../hooks/useUpComing";
 import { useTrending } from "../hooks/useTrending";
 
-
-
 import "../styles/movie-card.css";
-import { CustomSwiper } from "./CustomSwiper";
 
 export const Movies = () => {
   const { popular, isLoadingPopular } = usePopular();
@@ -43,19 +37,18 @@ export const Movies = () => {
       filteredState.moviesState.filteredMovies.length === 0 ? (
         <HeaderImage movie={randomMovie} />
       ) : null}
-      
+
       <FilteredMovies
         filteredState={filteredState}
         inputValue={inputValue}
         isLoading={isLoadingPopular}
       />
 
-      <CustomSwiper movie={trending} type='Trending'/>
-      <CustomSwiper movie={popular} type='Popular'/>
-      <CustomSwiper movie={nowPlaying} type='Now playing'/>
-      <CustomSwiper movie={topRated} type='Top rated'/>
-      <CustomSwiper movie={upComing} type='Up coming'/>
-
+      <CustomSwiper movie={trending} type="Trending" />
+      <CustomSwiper movie={popular} type="Popular" />
+      <CustomSwiper movie={nowPlaying} type="Now playing" />
+      <CustomSwiper movie={topRated} type="Top rated" />
+      <CustomSwiper movie={upComing} type="Up coming" />
     </>
   );
 };

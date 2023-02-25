@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
 import { MoviesContextProps } from "../context/MoviesContext";
 import { MovieCard } from "./MovieCard";
-
-import '../styles/filteredMovies.css'
+import "../styles/filteredMovies.css";
 
 interface Props {
   inputValue: string;
   filteredState: MoviesContextProps;
   isLoading: boolean;
 }
-
-export const FilteredMovies = ({
-  inputValue,
-  filteredState,
-  isLoading,
-}: Props) => {
+export const FilteredMovies = ({inputValue,filteredState,isLoading,}: Props) => {
   useEffect(() => {
     if (inputValue !== "") {
       window.scrollTo({
@@ -24,10 +18,10 @@ export const FilteredMovies = ({
       });
     }
   }, [inputValue]);
+
   if (inputValue.length === 0) {
     return null;
   }
- 
   return (
     <div id="filtered-movies">
       <p

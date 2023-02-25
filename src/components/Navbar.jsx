@@ -6,12 +6,11 @@ import "../styles/navbar.css";
 
 export const Navbar = () => {
   const navRef = useRef();
-  const showNavbar = () => {
-    navRef.current.classList.toggle("active");
-  };
-
+  // TODO: future implementation
+  // const showNavbar = () => {
+  //   navRef.current.classList.toggle("active");
+  // };
   const backgroundRef = useRef();
-
   useEffect(() => {
     window.onscroll = () => {
       if (

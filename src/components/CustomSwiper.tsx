@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 
 import { Result } from "../interfaces/interfaces";
-
 import { CustomModal } from "./CustomModal";
 
 import "swiper/swiper.min.css";
@@ -16,24 +15,24 @@ interface Props {
 export const CustomSwiper = ({ movie, type }: Props) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-
   const [open, setOpen] = useState(false);
   const [movieModal, setMovieModal] = useState<Result>();
 
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div className="modal-container">
-      {
-        movieModal &&
-    <CustomModal open={open} handleClose={handleClose} modalMovie={movieModal}/>
-      }
+      {movieModal && (
+        <CustomModal
+          open={open}
+          handleClose={handleClose}
+          modalMovie={movieModal}
+        />
+      )}
       <h1 className="movie-type">{type}</h1>
       <div className="swiper-container">
         <button className="swiper-btn" ref={prevRef}>
@@ -71,27 +70,26 @@ export const CustomSwiper = ({ movie, type }: Props) => {
               width: 1680,
               slidesPerView: 5,
             },
-
           }}
         >
           {movie.map((p) => {
             return (
               <SwiperSlide>
-                  <div key={p.id} className="swiper-img">
-                      <img
-                      onClick={()=>{
-                        handleOpen()
-                        setMovieModal(p)
-                      }}
-                        style={{
-                          height: "100%",
-                          width: "100%",
-                          borderRadius: "10px",
-                        }}
-                        src={`https://image.tmdb.org/t/p/original/${p.backdrop_path}`}
-                      />
-              </div>
-                </SwiperSlide>
+                <div key={p.id} className="swiper-img">
+                  <img
+                    onClick={() => {
+                      handleOpen();
+                      setMovieModal(p);
+                    }}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      borderRadius: "10px",
+                    }}
+                    src={`https://image.tmdb.org/t/p/original/${p.backdrop_path}`}
+                  />
+                </div>
+              </SwiperSlide>
             );
           })}
         </Swiper>

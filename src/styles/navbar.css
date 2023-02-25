@@ -1,86 +1,73 @@
-.nav-colored { background-color: #0D0D38 !important; }
-.nav-transparent { background-color:transparent;}
+.nav-colored {
+  background-color: #0d0d38 !important;
+}
+.nav-transparent {
+  background-color: transparent;
+}
 
-.brand-logo{
-    height: 160px;
-    width: 160px;
-    /* position: relative; */
+.brand-logo {
+  height: 160px;
+  width: 160px;
 }
-.brand-logo img{
-    width: 100%;
-    height: 100%;
+.brand-logo img {
+  width: 100%;
+  height: 100%;
 }
-.search-bar{
-    display: flex;
-    padding: 0 10px;
-    margin-right: 3rem;
-    position: relative;
-    top: -.7rem;
+.search-bar {
+  display: flex;
+  padding: 0 10px;
+  margin-right: 3rem;
+  position: relative;
+  top: -0.7rem;
 }
-.search-bar input{
-    border: 1.2px solid #ffffff;
-    border-radius: 10px;    
-    color: white;
-    background: none;
-    width: 100%;
-    padding: 10px 15px;
-
+.search-bar input {
+  border: 1.2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  background: none;
+  width: 100%;
+  padding: 10px 15px;
 }
-.search-bar input:focus{
-    outline: none;
-    
+.search-bar input:focus {
+  outline: none;
 }
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: none;
-    height: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    transition: all .4s ease;
-    z-index: 99999;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.4s ease;
+  z-index: 99999;
 }
-.toggle-button{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    display: none;
-    cursor: pointer;
-
+.toggle-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+  cursor: pointer;
 }
-.toggle-button .fa-bars{
-    font-size: 2.5rem;
-    color: #fff;
+.toggle-button .fa-bars {
+  font-size: 2.5rem;
+  color: #fff;
 }
 
 /* media queries */
-@media (max-width: 768px){
-.toggle-button{
+@media (max-width: 768px) {
+  .toggle-button {
     display: block;
-}
-
-/* .navbar{
-     flex-direction: column;
-     justify-content: center;
-
-     align-items: flex-start;
-} */
-.search-bar {
-    padding: .8rem 0;
-}
-
-
-
+  }
+  .search-bar {
+    padding: 0.8rem 0;
+  }
 }
 
 /* toggle class */
-.active{
-    display: block;
-    height: min-content;
-    /* padding: 15px 10px; */
+.active {
+  display: block;
+  height: min-content;
 }
-
-
