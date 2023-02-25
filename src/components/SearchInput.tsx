@@ -3,7 +3,7 @@ import { MoviesContext } from "../context/MoviesContext";
 import { moviesApi } from "../api/moviesApi";
 import { Result } from "../interfaces/interfaces";
 
-import "../styles/navbar.css"
+import "../styles/navbar.css";
 
 export const SearchInput = ({ navRef }: any) => {
   const [inputValue, setInputValue] = useState("");
@@ -11,7 +11,7 @@ export const SearchInput = ({ navRef }: any) => {
   const { filtMovies, updateSearchInput } = useContext(MoviesContext);
   const api_key = "913e10c847c55fbb2045a16908b5870b";
 
-  const inputRef = useRef('');
+  const inputRef = useRef("");
   const getFilteredMovie = () => {
     if (inputValue.length === 0) {
       filtMovies([]);
@@ -32,28 +32,26 @@ export const SearchInput = ({ navRef }: any) => {
     return filteredMovies;
   };
 
-  const updateInput = () =>{
+  const updateInput = () => {
     if (inputValue.length === 0) {
       updateSearchInput(inputRef.current);
-
     }
     updateSearchInput(inputRef.current);
-
-  }
+  };
   useEffect(() => {
     inputRef.current = inputValue;
     getFilteredMovie();
     updateInput();
   }, [inputValue]);
-  
+
   return (
     <div className="search-bar" ref={navRef}>
       <input
         className="input"
         placeholder="Search movies"
         value={inputValue}
-        onChange={(e) =>{ 
-          setInputValue(e.target.value)
+        onChange={(e) => {
+          setInputValue(e.target.value);
         }}
       />
     </div>

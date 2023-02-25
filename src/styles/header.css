@@ -1,83 +1,81 @@
-
-.header{
-    width: 100%;
-    height: 85vh;
-    background: no-repeat center center / cover;
+.header {
+  width: 100%;
+  height: 85vh;
+  background: no-repeat center center / cover;
 }
 
-.header-content{
-    width: 50%;
-    color: #fff;
-    position: relative;
-    top: 30%;
-    left: 3%;
+.header-content {
+  width: 50%;
+  color: #fff;
+  position: relative;
+  top: 30%;
+  left: 3%;
 }
 
-.header-content-layout{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    animation-duration: 2s;
+.header-content-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  animation-duration: 2s;
 }
 
-.header-content-layout h1{
-    font-size: 2rem;
+.header-content-layout h1 {
+  font-size: 2rem;
 }
 
-.header-content-layout button{
-    color: #fff;
-    background: #d1d0d0;
-    padding: 5px 40px;
-    border-radius: 10px;
-    border: 1px solid black;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: #0D0D38;
-    transition: all .4s ease;
+.header-content-layout button {
+  color: #fff;
+  background: #d1d0d0;
+  padding: 5px 40px;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #0d0d38;
+  transition: all 0.4s ease;
 }
 
-button:hover{
-    background: #191966;
+button:hover {
+  background: #191966;
 }
-button p{
-    font-weight: 500;
-}
-
-i{
-    font-size: 1.2rem;
+button p {
+  font-weight: 500;
 }
 
-#overview{
-    font-size: 1.4rem;
+i {
+  font-size: 1.2rem;
 }
 
-.header-content-layout button p{
-    padding-left: 1rem;
+#overview {
+  font-size: 1.4rem;
 }
 
-.header-content-layou{
-    font-size: 1.5rem;
+.header-content-layout button p {
+  padding-left: 1rem;
 }
 
-.bottom-shadow{
-    height: 50px;
-    position: relative;
-    top: -3rem;
+.header-content-layou {
+  font-size: 1.5rem;
+}
+
+.bottom-shadow {
+  height: 50px;
+  position: relative;
+  top: -3rem;
 }
 
 /* media queries */
 
-@media (max-width: 768px){
-.header-content{
+@media (max-width: 768px) {
+  .header-content {
     width: 90%;
-}
+  }
 
-#overview{
+  #overview {
     font-size: 1.2rem;
-}
-    
+  }
 }

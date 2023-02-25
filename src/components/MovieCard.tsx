@@ -9,24 +9,22 @@ interface MovieCardProps {
     isLoading: boolean;
   };
 }
-
 export const MovieCard = ({ movieInfo }: MovieCardProps) => {
-  const { movie, isLoading } = movieInfo;
-
-  if (isLoading) {
-  }
-
+  const { movie } = movieInfo;
   return (
     <>
       {movie.poster_path && (
-        <Link to={`/movie/${movie.id}`} state={movie} style={{
-          'width': '32px !important'
-        }}>
+        <Link
+          to={`/movie/${movie.id}`}
+          state={movie}
+          style={{
+            width: "32px !important",
+          }}
+        >
           <div
             className="movie-content"
             style={{
               backgroundImage: `url(https://image.tmdb.org/t/p/w300/${movie.poster_path})`,
-      
             }}
           ></div>
         </Link>

@@ -17,7 +17,6 @@ export const moviesReducer = (
       };
       
     case "updateSearchInput":
-      // console.log("updated callled", action.payload)
       return{
         ...state,
         searchInput: action.payload
