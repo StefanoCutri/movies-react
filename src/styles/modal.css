@@ -117,6 +117,20 @@ span{
     cursor: pointer;
 }
 
+.modal-link{
+    color: rgb(156, 156, 156);
+    font-size: .8rem;
+    text-decoration: none;
+    position: relative;
+    top: 1.8rem;
+    left: 56%;
+    transition: color .4s ease;
+
+}
+
+.modal-link:hover{
+    color: #4d4d4d;
+}
 /* mediaqueries */
 @media (max-width: 793px){
     .movie-title{ 

@@ -145,7 +145,7 @@ export const CustomModal = ({ handleClose, open, modalMovie }: Props) => {
           <span onClick={() => {
             document.body.style.overflow = 'unset';
           }}>
-          <Link to={`/movie/${modalMovie.id}`} state={modalMovie}>
+          <Link to={`/movie/${modalMovie.id}`} state={modalMovie} className='modal-link'>
             More details
           </Link>
           </span>
