@@ -43,6 +43,9 @@
 button:hover{
     background: #191966;
 }
+button p{
+    font-weight: 500;
+}
 
 i{
     font-size: 1.2rem;
@@ -72,10 +75,7 @@ i{
 .header-content{
     width: 90%;
 }
-.header-content-layout{
-    /* justify-content: center; */
-    /* align-items: center;/ */
-}
+
 #overview{
     font-size: 1.2rem;
 }
