@@ -4,11 +4,11 @@ import { Navigation } from "swiper";
 
 import { Result } from "../interfaces/interfaces";
 
-import "swiper/swiper.min.css";
-// import "swiper/modules/navigation/navigation.min.css";
-
-import "../styles/custom-swiper.css";
 import { CustomModal } from "./CustomModal";
+
+import "swiper/swiper.min.css";
+import "../styles/custom-swiper.css";
+
 interface Props {
   movie: Result[];
   type: string;
@@ -21,12 +21,10 @@ export const CustomSwiper = ({ movie, type }: Props) => {
   const [movieModal, setMovieModal] = useState<Result>();
 
   const handleOpen = () => {
-    console.log("open");
     setOpen(true);
   };
 
   const handleClose = () => {
-    console.log("close");
     setOpen(false);
   };
 

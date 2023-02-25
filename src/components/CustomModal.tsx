@@ -7,7 +7,7 @@ import { Result } from "../interfaces/interfaces";
 import ReactModal from "react-modal";
 
 import "../styles/modal.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useMovieCast } from "../hooks/useMovieCast";
 import { filterGenresById } from "../helpers/filterGenresById";
 
@@ -83,6 +83,7 @@ export const CustomModal = ({ handleClose, open, modalMovie }: Props) => {
     >
       <div className="modal-size">
           <img
+            className='modal-img'
             src={`https://image.tmdb.org/t/p/original/${modalMovie.backdrop_path}`}
             style={{
               height: "100%",
@@ -141,6 +142,13 @@ export const CustomModal = ({ handleClose, open, modalMovie }: Props) => {
             }
               </span>
           </div>
+          <span onClick={() => {
+            document.body.style.overflow = 'unset';
+          }}>
+          <Link to={`/movie/${modalMovie.id}`} state={modalMovie}>
+            More details
+          </Link>
+          </span>
         </div >
           </div>
         </div>

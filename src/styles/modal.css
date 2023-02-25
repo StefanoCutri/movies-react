@@ -45,6 +45,14 @@
     top: -50%;
 
 }
+.swiper-img{
+    transition: all 6s ease-out;
+}
+.swiper-img:hover{
+max-height: 50rem;
+max-width: 60rem;
+
+}
 
 .column-wrapper{
     display: grid;
