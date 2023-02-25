@@ -6,10 +6,13 @@ Moives React App using TMBDB Api.
  
  See live project at: https://movies-react-nu.vercel.app/
  
-![Home view](https://user-images.githubusercontent.com/69378136/218623182-3433c165-7b21-4b83-beca-398a4b383a87.png)
+![Home view](https://user-images.githubusercontent.com/69378136/221325393-b6995f88-662a-4d87-a3dd-5bc58bf8cc61.png)
 
-![Search view](https://user-images.githubusercontent.com/69378136/218623248-bc5215b4-ca71-4b74-b000-4685ca4ac1cc.png)
+![Carrousel view](https://user-images.githubusercontent.com/69378136/221325500-3cab6c9d-183b-4004-87c2-925dd4466a84.png)
 
-![Movie details view](https://user-images.githubusercontent.com/69378136/218623326-d839abdc-50b8-451f-aede-59eba411729b.png)
+![Search view](https://user-images.githubusercontent.com/69378136/221325434-6059135e-d816-4d25-8eee-c8a7a9133e7e.png)
+
+![Movie details view](https://user-images.githubusercontent.com/69378136/221325468-c7b77d13-8693-44d5-9dda-782b9702a1fe.png)
+
 
 
