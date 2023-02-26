@@ -10,6 +10,8 @@ Moives React App using TMBDB Api.
 
 ![Carrousel view](https://user-images.githubusercontent.com/69378136/221325500-3cab6c9d-183b-4004-87c2-925dd4466a84.png)
 
+![](https://user-images.githubusercontent.com/69378136/221438620-b2fbc29e-ed33-4708-bc2e-96f15dafa10c.png)
+
 ![Search view](https://user-images.githubusercontent.com/69378136/221325434-6059135e-d816-4d25-8eee-c8a7a9133e7e.png)
 
 ![Movie details view](https://user-images.githubusercontent.com/69378136/221325468-c7b77d13-8693-44d5-9dda-782b9702a1fe.png)
