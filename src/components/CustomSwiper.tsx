@@ -77,6 +77,7 @@ export const CustomSwiper = ({ movie, type }: Props) => {
               <SwiperSlide>
                 <div key={p.id} className="swiper-img">
                   <img
+                  alt={p.original_title}
                     onClick={() => {
                       handleOpen();
                       setMovieModal(p);
