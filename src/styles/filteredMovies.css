@@ -1,6 +1,18 @@
 
-@media all and (max-width: 1000px) and (min-width: 200px) {
-    .filt-results {
-     margin-top: 20%;
-    }
+.results{
+  color: #fff;
+  font-weight: 600;
+  margin: 3rem 0 0 2rem;
+
 }
+
+@media(max-width: 993px) {
+  .results{
+    color: #fff;
+    font-weight: 600;
+    margin: 6rem 0 0 2rem;
+  
+  }
+  
+}
+

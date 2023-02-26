@@ -54,6 +54,14 @@ export const SearchInput = ({ navRef }: any) => {
           setInputValue(e.target.value);
         }}
       />
+        {
+          inputValue.length > 0 
+          &&
+          <span
+          className="remove-input"
+          onClick={() => setInputValue('')} 
+          >X</span>
+        }
     </div>
   );
 };

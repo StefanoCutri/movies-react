@@ -25,16 +25,13 @@ export const FilteredMovies = ({inputValue,filteredState,isLoading,}: Props) => 
   return (
     <div id="filtered-movies">
       <p
-        className="movie-type"
-        style={{
-          marginTop: "2rem",
-        }}
+        className="results"
       >
         {inputValue.length > 0 &&
         filteredState.moviesState.filteredMovies.length === 0 ? (
-          <p className="filt-results">No results for "{inputValue}"</p>
+          <span className="filt-results">No results for "{inputValue}"</span>
         ) : (
-          <p className="filt-results">Results for "{inputValue}"</p>
+          <span className="filt-results">Results for "{inputValue}"</span>
         )}
       </p>
       <div
