@@ -74,10 +74,10 @@ export const CustomSwiper = ({ movie, type }: Props) => {
         >
           {movie.map((p) => {
             return (
-              <SwiperSlide>
-                <div key={p.id} className="swiper-img">
+              <SwiperSlide key={p.id}>
+                <div className="swiper-card">
                   <img
-                  alt={p.original_title}
+                    alt={p.original_title}
                     onClick={() => {
                       handleOpen();
                       setMovieModal(p);
