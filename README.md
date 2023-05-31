@@ -1,4 +1,4 @@
-Moives React App using TMBDB Api.
+Movies React App using TMBDB Api.
 
  Basic navigation with React Router Dom and manage app state with React Context Api.
  
